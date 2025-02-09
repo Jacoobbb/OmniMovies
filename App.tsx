@@ -1,7 +1,7 @@
 
-import Header from "./src/common/components/Header";
 import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import Header from "./common/components/Header";
 
 if (Platform.OS === "android") {
   StatusBar.setTranslucent(true);
