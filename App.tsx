@@ -1,7 +1,8 @@
 
 import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import Header from "./common/components/Header";
+import * as Icons from "react-native-heroicons/outline";
+import Header from "./src/common/components/Header";
 
 if (Platform.OS === "android") {
   StatusBar.setTranslucent(true);
@@ -13,7 +14,11 @@ export default function App() {
 
 
   const leftElement = (<Text style={{fontSize: 20, fontWeight: 'bold', color: '#ffffff'}}>Film List</Text>);
-  // const rightElement = (<Text style={{fontSize: 20, fontWeight: 'bold', color: '#ffffff'}}>Film List</Text>)
+  const rightElement = (
+    <View>
+      <Icons.MagnifyingGlassIcon color={'#fff'} />
+    </View>
+  )
 
   return (
       <SafeAreaProvider>
@@ -21,7 +26,7 @@ export default function App() {
           style={styles.root} 
 
         >
-                <Header leftElement={leftElement} />
+                <Header leftElement={leftElement} rightElement={rightElement} />
         </SafeAreaView>
       </SafeAreaProvider>
 
