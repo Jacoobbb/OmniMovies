@@ -13,6 +13,11 @@ class MainActivity : ReactActivity() {
    */
   override fun getMainComponentName(): String = "omnimovieapp"
 
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(null)
+    ReactFontManager.getInstance().addCustomFont(this, "Poppins", R.font.poppins)
+  }
+
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]
    * which allows you to enable New Architecture with a single boolean flags [fabricEnabled]
