@@ -1,5 +1,6 @@
 import { ParamListBase, RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { MovieDetailsScreenOwnProps } from "../screens/MovieDetailsScreen";
 
 export interface StackNavigationProps<
   ParamList extends ParamListBase,
@@ -18,7 +19,7 @@ declare global {
 
 export type RootStackParamList = {
   Main: TabStackParamList;
-  MovieDetails: undefined;
+  MovieDetails: MovieDetailsScreenOwnProps;
   MovieSearch: undefined
 };
 
