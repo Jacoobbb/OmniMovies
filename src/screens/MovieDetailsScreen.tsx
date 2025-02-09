@@ -1,8 +1,10 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { Movie } from "../typings/movie";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../typings/navigator";
+import { AnimatedAutoHeightImage } from "../common/components/AutoHeightImage";
+import Animated from "react-native-reanimated";
 
 export interface MovieDetailsScreenOwnProps extends Movie {
     isFavorite: boolean
@@ -14,9 +16,14 @@ type MovieDetailsScreenProps = NativeStackScreenProps<
 >;
   
 export default function MovieDetailsScreen(props: MovieDetailsScreenProps) {
-    const {} = props.route;
+    const { imdbID, Poster } = props.route.params;
     return (
-        <></>
+        <AnimatedAutoHeightImage
+            sharedTransitionTag={`movie_card_${imdbID}`}
+            width={Dimensions.get('window').width}
+            style={styles.image}
+            source={{ uri: Poster }}
+        />
     )
 }
 

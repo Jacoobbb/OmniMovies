@@ -2,6 +2,7 @@
 import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import AppNavigator from "./src/navigation/AppNavigator";
+import TabNavigator from "./src/navigation/TabNavigator";
 
 if (Platform.OS === "android") {
   StatusBar.setTranslucent(true);
@@ -17,7 +18,7 @@ export default function App() {
           style={styles.root} 
           edges={['left', 'right', 'bottom']}
         >
-          <AppNavigator />
+          <TabNavigator />
         </SafeAreaView>
       </SafeAreaProvider>
 

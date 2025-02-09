@@ -1,28 +1,24 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../typings/navigator';
 import { StyleSheet } from 'react-native';
-import TabNavigator from './TabNavigator';
 import MovieDetailsScreen from '../screens/MovieDetailsScreen';
 import MovieSearchScreen from '../screens/MovieSearchScreen';
+import MovieListScreen from '../screens/MovieListScreen';
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator 
-          screenOptions={{
-            headerShown: false, 
-            contentStyle: styles.container, 
-            animation: 'fade_from_bottom'
-          }}>
-        <Stack.Screen name="Main" component={TabNavigator} />
-        <Stack.Screen name="MovieDetails" component={MovieDetailsScreen} />
-        <Stack.Screen name="MovieSearch" component={MovieSearchScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator 
+        screenOptions={{
+          headerShown: false, 
+          contentStyle: styles.container,
+        }}>
+      <Stack.Screen name="Main" component={MovieListScreen} />
+      <Stack.Screen name="MovieDetails" component={MovieDetailsScreen} />
+      <Stack.Screen name="MovieSearch" component={MovieSearchScreen} />
+    </Stack.Navigator>
   );
 }
 

@@ -1,10 +1,11 @@
 import { ElementType, useCallback } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TabIconProps, TabStackParamList } from '../typings/navigator';
-import MovieListScreen from '../screens/MovieListScreen';
 import FavoriteScreen from '../screens/FavoriteMoviesScreen';
 import { StyleSheet, View } from 'react-native';
 import * as Icons from 'react-native-heroicons/outline';
+import AppNavigator from './AppNavigator';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator<TabStackParamList>();
 
@@ -22,6 +23,7 @@ export default function TabNavigator() {
   );
 
   return (
+    <NavigationContainer>
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
@@ -35,7 +37,7 @@ export default function TabNavigator() {
     >
       <Tab.Screen
         name="MovieList"
-        component={MovieListScreen}
+        component={AppNavigator}
         options={{
           tabBarIcon: renderTabIcon(Icons.FilmIcon),
         }}
@@ -48,6 +50,7 @@ export default function TabNavigator() {
         }}
       />
     </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 

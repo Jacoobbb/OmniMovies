@@ -3,6 +3,7 @@ import { Dimensions, Text, View, StyleSheet, FlatList, Pressable } from 'react-n
 import { useNavigation } from '@react-navigation/native';
 import { Movie } from '../../typings/movie';
 import { AnimatedAutoHeightImage } from './AutoHeightImage';
+import Animated from 'react-native-reanimated';
 
 interface MovieCardProps extends Movie {
     isFavorite: boolean
@@ -24,12 +25,12 @@ const { imdbID, Poster, Title, isFavorite } = props;
             isFavorite 
         })} 
         style={styles.imageContainer}>
-        <AnimatedAutoHeightImage
-            sharedTransitionTag={`movie_card_${imdbID}`}
-            width={itemWidth}
-            style={styles.image}
-            source={{ uri: Poster }}
-        />
+            <AnimatedAutoHeightImage
+                sharedTransitionTag={`movie_card_${imdbID}`}
+                width={itemWidth}
+                style={styles.image}
+                source={{ uri: Poster }}
+            />
         <Text numberOfLines={1} style={styles.titleText}>
             {Title}
         </Text>
