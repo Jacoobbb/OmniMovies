@@ -6,11 +6,12 @@ interface HeaderProps {
     leftAction?: () => void;
     rightElement?: JSX.Element;
     rightAction?: () => void;
+    hasGradient?: boolean
 }
 
 export default function Header(props: HeaderProps) {
 
-    const {leftElement, leftAction, rightElement, rightAction} = props;
+    const {leftElement, leftAction, rightElement, rightAction, hasGradient} = props;
 
     return (
         <View>
@@ -22,7 +23,7 @@ export default function Header(props: HeaderProps) {
                     {rightElement}
                 </Pressable>
             </View>
-            <Image style={styles.background} source={BACKGROUND_IMAGE} />
+            { hasGradient && <Image style={styles.background} source={BACKGROUND_IMAGE} />}
         </View>
     )
 }
@@ -30,12 +31,13 @@ export default function Header(props: HeaderProps) {
 const styles = StyleSheet.create({
     headerContainer: {
         zIndex: 2, 
-        height: (70 + STATUSBAR_HEIGHT), 
-        padding: 20, 
+        height: (50 + STATUSBAR_HEIGHT), 
+        paddingLeft: 20, 
+        paddingRight: 20, 
         flexDirection: 'row', 
         alignItems: 'center',
         alignSelf: 'center',
-        paddingTop: STATUSBAR_HEIGHT
+        paddingTop: (STATUSBAR_HEIGHT)
     },
     headerLeft: {
         flex: 1
