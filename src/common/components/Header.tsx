@@ -30,11 +30,12 @@ export default function Header(props: HeaderProps) {
 const styles = StyleSheet.create({
     headerContainer: {
         zIndex: 2, 
-        height: 70, 
+        height: (70 + STATUSBAR_HEIGHT), 
         padding: 20, 
         flexDirection: 'row', 
         alignItems: 'center',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        paddingTop: STATUSBAR_HEIGHT
     },
     headerLeft: {
         flex: 1
@@ -49,6 +50,6 @@ const styles = StyleSheet.create({
         position: 'absolute', 
         width: '100%', 
         height: Dimensions.get('window').height * 0.6, 
-        marginTop: (-70 - STATUSBAR_HEIGHT)
+        marginTop: (-70 + STATUSBAR_HEIGHT)
     }
 })
