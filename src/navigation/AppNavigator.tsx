@@ -12,7 +12,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function AppNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false, contentStyle: styles.container}}>
+      <Stack.Navigator 
+          screenOptions={{
+            headerShown: false, 
+            contentStyle: styles.container, 
+            animation: 'fade_from_bottom'
+          }}>
         <Stack.Screen name="Main" component={TabNavigator} />
         <Stack.Screen name="MovieDetails" component={MovieDetailsScreen} />
         <Stack.Screen name="MovieSearch" component={MovieSearchScreen} />
