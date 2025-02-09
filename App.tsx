@@ -3,6 +3,7 @@ import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import * as Icons from "react-native-heroicons/outline";
 import Header from "./src/common/components/Header";
+import AppNavigator from "./src/navigation/AppNavigator";
 
 if (Platform.OS === "android") {
   StatusBar.setTranslucent(true);
@@ -17,6 +18,7 @@ export default function App() {
   const rightElement = (
     <View>
       <Icons.MagnifyingGlassIcon color={'#fff'} />
+      <Header leftElement={leftElement} rightElement={undefined} />
     </View>
   )
 
@@ -24,9 +26,8 @@ export default function App() {
       <SafeAreaProvider>
         <SafeAreaView 
           style={styles.root} 
-
         >
-                <Header leftElement={leftElement} rightElement={rightElement} />
+          <AppNavigator />
         </SafeAreaView>
       </SafeAreaProvider>
 
