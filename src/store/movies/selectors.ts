@@ -9,4 +9,4 @@ export const getMovieDetails = (state: { movieDetails: MovieDetailsState }) => s
 export const getMovieDetailsLoading = (state: { movieDetails: MovieDetailsState }) => state.movieDetails.loading;
 export const getMovieDetailsError = (state: { movieDetails: MovieDetailsState }) => state.movieDetails.error;
 
-export const getFavoriteMovies = (state: { favorite: FavoriteMoviesState }) => state.favorite.favorites;
+export const getFavoriteMovies = (state: { favorites: FavoriteMoviesState }) => state.favorites.favorites;

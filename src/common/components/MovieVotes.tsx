@@ -6,10 +6,11 @@ interface MovieIMDBRatingsProps {
   imdbRating: string;
   imdbVotes: string;
   onFavoritePress: () => void;
+  isMovieFavorite: boolean;
 };
 
 export default function MovieIMDBRatings(props: MovieIMDBRatingsProps) {
-  const { imdbVotes, onFavoritePress } = props;
+  const { imdbVotes, onFavoritePress, isMovieFavorite } = props;
 
   return (
     <View style={styles.container}>
@@ -22,7 +23,7 @@ export default function MovieIMDBRatings(props: MovieIMDBRatingsProps) {
       <View style={styles.column}>
         <TouchableOpacity style={styles.favoriteButton} onPress={onFavoritePress}>
           <Icons.BookmarkIcon size={24} color="#ffffff" />
-          <Text style={styles.favoriteText}>Save</Text>
+          <Text style={styles.favoriteText}>{isMovieFavorite ? 'Unsave' : 'Save'}</Text>
         </TouchableOpacity>
       </View>
     </View>
