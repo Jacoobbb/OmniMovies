@@ -33,7 +33,7 @@ A React Native movie app that lets users browse movies, view detailed informatio
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/movie-app.git
+   git clone https://github.com/Jacoobbb/OmniMovies
    cd movie-app
    ```
 
