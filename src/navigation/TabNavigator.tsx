@@ -1,11 +1,11 @@
 import { ElementType, useCallback } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TabIconProps, TabStackParamList } from '../typings/navigator';
-import FavoriteScreen from '../screens/FavoriteMoviesScreen';
 import { StyleSheet, View } from 'react-native';
 import * as Icons from 'react-native-heroicons/outline';
 import AppNavigator from './AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
+import FavoritesNavigator from './FavoritesNavigator';
 
 const Tab = createBottomTabNavigator<TabStackParamList>();
 
@@ -44,7 +44,7 @@ export default function TabNavigator() {
       />
       <Tab.Screen
         name="Favorites"
-        component={FavoriteScreen}
+        component={FavoritesNavigator}
         options={{
           tabBarIcon: renderTabIcon(Icons.BookmarkSquareIcon),
         }}

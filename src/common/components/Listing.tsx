@@ -11,7 +11,7 @@ export enum LISTING_MODE {
 interface ListingProps {
     data: Movie[];
     mode: LISTING_MODE;
-    scrollY: SharedValue<number>;
+    scrollY?: SharedValue<number>;
     onEndReached: () => void;
     loading: boolean;
 }
@@ -29,7 +29,7 @@ export default function Listing(props: ListingProps) {
       return item.imdbID;
     };
 
-    const scrollHandler = useAnimatedScrollHandler({
+    const scrollHandler = scrollY && useAnimatedScrollHandler({
       onScroll: (event) => {
           scrollY.value = event.contentOffset.y;
       },
@@ -40,7 +40,7 @@ export default function Listing(props: ListingProps) {
             <Animated.FlatList
                 onScroll={scrollHandler}
                 scrollEventThrottle={16}
-                numColumns={mode}
+                numColumns={2}
                 data={data}
                 onEndReached={onEndReached}
                 renderItem={renderItem}

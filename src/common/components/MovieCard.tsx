@@ -1,9 +1,10 @@
 import React from 'react';
-import { Dimensions, Text, View, StyleSheet, FlatList, Pressable } from 'react-native';
+import { Dimensions, Text, StyleSheet, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Movie } from '../../typings/movie';
 import { AnimatedAutoHeightImage } from './AutoHeightImage';
-import Animated from 'react-native-reanimated';
+import { RootStackParamList } from '../../typings/navigator';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 interface MovieCardProps extends Movie {
     isFavorite: boolean
@@ -12,8 +13,10 @@ interface MovieCardProps extends Movie {
 const screenWidth = Dimensions.get('window').width;
 const itemWidth = screenWidth / 2 - 50;
 
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "MovieDetails">;
+
 export default function MovieCard(props: MovieCardProps) {
-const go = useNavigation();
+const go = useNavigation<NavigationProp>();
 const { imdbID, Poster, Title, isFavorite } = props;
 
   return (

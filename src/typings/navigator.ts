@@ -20,7 +20,8 @@ declare global {
 export type RootStackParamList = {
   Main: TabStackParamList;
   MovieDetails: MovieDetailsScreenOwnProps;
-  MovieSearch: undefined
+  MovieSearch: undefined;
+  FavoriteMovies: undefined;
 };
 
 export type TabStackParamList = {
