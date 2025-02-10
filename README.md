@@ -1,79 +1,132 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Omni Movie App
 
-# Getting Started
+A React Native movie app that lets users browse movies, view detailed information about each movie, and add/remove them to/from their favorites. It uses Redux for state management and integrates with a third-party movie API to fetch movie data.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- Browse and search movies
+- View detailed information about each movie (poster, ratings, synopsis, etc.)
+- Add movies to the favorites list
+- Remove movies from the favorites list
+- Manage movie details and favorite status seamlessly
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Tech Stack
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **React Native**: Cross-platform mobile app development
+- **Redux**: State management
+- **React Navigation**: Navigation between screens
+- **Reanimated**: Smooth animations for scroll interactions
+- **React-Redux**: To connect the app's state with React components
+- **Axios**: For API requests (optional, depending on your API implementation)
+- **TypeScript**: For type safety
 
-```bash
-# using npm
-npm start
+## Project Setup
 
-# OR using Yarn
-yarn start
-```
+### Prerequisites
 
-## Step 2: Start your Application
+- Node.js (18.18.2)
+- yarn
+- React Native CLI (for Android/iOS development)
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### Installation
 
-### For Android
+1. Clone the repository:
 
-```bash
-# using npm
-npm run android
+   ```bash
+   git clone https://github.com/your-username/movie-app.git
+   cd movie-app
+   ```
 
-# OR using Yarn
-yarn android
-```
+2. Install dependencies:
 
-### For iOS
+   ```bash
+   yarn install
+   ```
 
-```bash
-# using npm
-npm run ios
+3. Start the project:
 
-# OR using Yarn
-yarn ios
-```
+   ```bash
+   yarn run android  # for Android
+   yarn run ios      # for iOS (macOS only)
+   ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+4. Make sure to rename `env-example` to `.env`.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## Features & Screens
 
-## Step 3: Modifying your App
+### 1. **Home Screen (Movie List)**
+- Display a list of movies that users can browse through.
+- Users can search for movies by title.
+- Navigation to movie details when a movie is clicked.
 
-Now that you have successfully run the app, let's modify it.
+### 2. **Movie Details Screen**
+- Show detailed information about the selected movie, including:
+  - Movie title
+  - Poster
+  - IMDB ratings
+  - Movie synopsis
+  - Credits (Cast & Crew)
+- Users can add or remove the movie from their favorites.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+### 3. **Favorites Screen**
+- A list of movies that users have marked as favorites.
+- Users can navigate to the details of the movie from the favorites list.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### 4. **Search Functionality**
+- TODO
 
-## Congratulations! :tada:
+## Navigation
 
-You've successfully run and modified your React Native App. :partying_face:
+The app uses `React Navigation` for navigation and tab-based routing:
 
-### Now what?
+- **Movie List Screen**: Shows a list of movies and includes a search bar.
+- **Favorites Screen**: Displays movies that are marked as favorites.
+- **Movie Details Screen**: Shows details about a selected movie.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+### Bottom Tab Navigation
 
-# Troubleshooting
+- **Movies Tab**: Displays a list of movies.
+- **Favorites Tab**: Displays the list of favorited movies.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## State Management
 
-# Learn More
+The app uses **Redux** for managing the state of:
+- Movies (fetched from an external API or a static mock source)
+- Favorite movies
+- Loading and error states
 
-To learn more about React Native, take a look at the following resources:
+### Actions
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- `fetchMoviesRequest`: Fetch a list of movies based on a search query.
+- `fetchMovieDetailsRequest`: Fetch detailed information about a specific movie.
+- `addFavoriteMovie`: Add a movie to the favorites list.
+- `removeFavoriteMovie`: Remove a movie from the favorites list.
+
+### Reducers
+
+- **Movies Reducer**: Handles movie data, loading state, and selected movie details.
+- **Favorites Reducer**: Manages the state of the user's favorite movies.
+
+
+## Contributing
+
+If you'd like to contribute to this project, feel free to fork the repository, make changes, and submit a pull request.
+
+### Steps for Contributing:
+
+1. Fork the repository.
+2. Create a new branch for your feature/bug fix.
+3. Make the necessary changes and test them.
+4. Commit your changes with a meaningful commit message.
+5. Submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- **React Native**: For the mobile app development framework.
+- **Redux**: For state management.
+- **React Navigation**: For easy navigation within the app.
+- **React-Redux**: For connecting Redux with React components.
