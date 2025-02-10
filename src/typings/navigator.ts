@@ -24,7 +24,7 @@ export type RootStackParamList = {
 };
 
 export type TabStackParamList = {
-    MovieList: undefined;
+    MovieList: { search: string };
     Favorites: undefined;
 };
 

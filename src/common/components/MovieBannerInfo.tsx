@@ -15,17 +15,11 @@ interface MovieBannerInfoProps {
 }
 
 export default function MovieBannerInfo(props: MovieBannerInfoProps) {
-    const { Poster, Title, Genre, Rated, Runtime, Type, imdbID } = props;
+    const { Title, Genre, Rated, Runtime, Type } = props;
     const genres = Genre.split(', ');
 
     return (
         <View style={styles.container}>
-            <AnimatedAutoHeightImage
-                sharedTransitionTag={`movie_card_${imdbID}`}
-                width={120}
-                source={{ uri: Poster }}
-                style={styles.poster}
-            />
             <View style={styles.infoContainer}>
                 <Text numberOfLines={2} style={styles.title}>
                     {Title}
@@ -49,11 +43,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     marginVertical: 10,
-  },
-  poster: {
-    marginTop: -100,
-    marginLeft: 20,
-    borderRadius: 10,
+    marginLeft: 140,
+    marginTop: -50
   },
   infoContainer: {
     flexDirection: 'column',

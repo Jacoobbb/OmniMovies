@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
 import { Movie } from "../../typings/movie";
 import MovieCard from "./MovieCard";
 import Animated, { SharedValue, useAnimatedScrollHandler } from "react-native-reanimated";
@@ -12,15 +12,17 @@ interface ListingProps {
     data: Movie[];
     mode: LISTING_MODE;
     scrollY: SharedValue<number>;
+    onEndReached: () => void;
+    loading: boolean;
 }
 
 export default function Listing(props: ListingProps) {
 
-    const { data, mode, scrollY } = props;
+    const { data, mode, scrollY, onEndReached, loading } = props;
 
     const renderItem = ({ item }: { item: Movie }) => {
         const isFavorite = mode === LISTING_MODE.FAVORITE;
-        return <MovieCard Title={item.Title} imdbID={item.imdbID}  Poster={item.Poster} isFavorite={isFavorite} />
+        return (item.Poster !== 'N/A') ? <MovieCard Title={item.Title} imdbID={item.imdbID}  Poster={item.Poster} isFavorite={isFavorite} /> : <></>
     };
     
     const keyExtractor = (item: Movie) => {
@@ -40,8 +42,12 @@ export default function Listing(props: ListingProps) {
                 scrollEventThrottle={16}
                 numColumns={mode}
                 data={data}
+                onEndReached={onEndReached}
                 renderItem={renderItem}
                 keyExtractor={keyExtractor}
+                onEndReachedThreshold={0.5}
+                ListFooterComponent={loading ? <ActivityIndicator size="small" color="#000" /> : null}
+        
             />
         </View>
     )

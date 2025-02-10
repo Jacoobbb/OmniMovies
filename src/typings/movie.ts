@@ -38,3 +38,41 @@ interface MovieRating {
   Source: string;
   Value: string;
 }
+
+export interface MovieListPayload {
+  search: string; 
+  page: number;
+}
+
+
+export interface AddFavoriteMoviePayload {
+  movieDetails: MovieDetails;
+}
+
+export interface RemoveFavoriteMoviePayload {
+  imdbID: string;
+}
+
+export interface MovieListResponse {
+  Search: Movie[];
+  totalResults: number;
+  Response: string;
+}
+
+export interface MovieListSuccessPayload {
+  movies: Movie[];
+  totalResults: number;
+  page: number
+}
+
+export interface FetchMovieDetailsRequestPayload {
+  imdbID: string;
+}
+
+export interface FetchMovieDetailsSuccessPayload {
+  movieDetails: MovieDetails;
+}
+
+export interface FetchMovieDetailsFailurePayload {
+  error: string;
+}
